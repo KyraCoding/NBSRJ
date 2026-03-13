@@ -51,10 +51,6 @@ def join():
         label.config(fg="red")
         return
     url = urlparse(link)
-    if (url.scheme not in ["http", "https"]):
-        label.config(text="Invalid URL. Please enter a valid link.")
-        label.config(fg="red")
-        return
     if ("roblox.com" not in url.netloc):
         label.config(text="Invalid URL. Please enter a Roblox link.")
         label.config(fg="red")
@@ -66,8 +62,8 @@ def join():
         os.startfile(uri)
         label.config(text=f"Joining Roblox server with code: {code}")
         label.config(fg="green") 
-    elif "privateserverlinkcode" in queries:
-        code = queries["privateserverlinkcode"][0]
+    elif "privateServerLinkCode" in queries:
+        code = queries["privateServerLinkCode"][0]
         uri = f"roblox://experiences/start?placeId=15532962292&privateServerLinkCode={code}"
         os.startfile(uri)
         label.config(text=f"Joining Roblox server with code: {code}")
